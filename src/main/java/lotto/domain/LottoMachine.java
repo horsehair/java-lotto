@@ -41,14 +41,7 @@ public class LottoMachine {
     }
 
     private static List<Integer> getRandomNumbers() {
-        List<Integer> numbers = new ArrayList<>();
-        int randomNumber;
-        do {
-            randomNumber = Randoms.pickNumberInRange(LOTTO_START_NUMBER, LOTTO_END_NUMBER);
-            if (!numbers.contains(randomNumber)) {
-                numbers.add(randomNumber);
-            }
-        } while (numbers.size() < LOTTO_COUNT_OF_NUMBERS);
+        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(LOTTO_START_NUMBER, LOTTO_END_NUMBER, LOTTO_COUNT_OF_NUMBERS);
         return numbers;
     }
 }

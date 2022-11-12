@@ -47,8 +47,10 @@ public class LottoAccount {
     }
 
     private String calculateYield() {
-        double yieldRaw = winningAmount * 100 / (count * 1000);
-        String yield = String.format("%.1f", yieldRaw);
+        double yieldRaw = winningAmount * 1000 / ((double) (count * 1000));
+        double yieldRound = Math.round(yieldRaw);
+        double yieldDivided10 = yieldRound / 10;
+        String yield = String.format("%.1f", yieldDivided10);
         return yield;
     }
 }
