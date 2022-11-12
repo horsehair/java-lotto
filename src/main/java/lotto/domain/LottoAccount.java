@@ -25,6 +25,7 @@ public class LottoAccount {
         this.count = lottos.size();
         lottos.stream()
                 .forEach(lotto -> saveOneLotto(lotto));
+        calculateWinningAmount();
     }
 
     private void saveOneLotto(Lotto lotto) {
@@ -36,5 +37,11 @@ public class LottoAccount {
 
     public void returnResult() {
         UserInterface.printResult(results);
+    }
+
+    private void calculateWinningAmount() {
+        for (WinningResult result: results.keySet()) {
+            this.winningAmount += results.get(result) * result.getMoney();
+        }
     }
 }
