@@ -4,10 +4,10 @@ import java.util.List;
 import lotto.ui.UserInterface;
 
 public class User {
-//    LottoAccount lottoAccount;
+    LottoAccount lottoAccount;
 
     public User() {
-//        this.lottoAccount = new LottoAccount();
+        this.lottoAccount = new LottoAccount();
     }
 
     public void buyLottos() {
@@ -18,6 +18,6 @@ public class User {
     }
 
     public void saveLottosInAccount(List<Lotto> lottos) {
-//        this.lottoAccount.saveLottos(lottos);
+        this.lottoAccount.saveLottos(lottos);
     }
 }
