@@ -22,4 +22,14 @@ public class WinningCalculator {
         WinningResult result = getResultByCountAndBonus(countHit, isContainBonus);
         return result;
     }
+
+    private static int countHit(List<Integer> numbers) {
+        int count = 0;
+        for (int number: numbers) {
+            if (winningNumbers.contains(number)) {
+                count += 1;
+            }
+        }
+        return count;
+    }
 }
