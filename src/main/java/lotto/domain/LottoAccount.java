@@ -8,6 +8,7 @@ import lotto.ui.UserInterface;
 
 public class LottoAccount {
     private Map<WinningResult, Integer> results = new LinkedHashMap();
+    private int count;
 
     public LottoAccount() {
         results.put(WinningResult.RANK_NONE, 0);
@@ -19,6 +20,7 @@ public class LottoAccount {
     }
 
     public void saveLottos(List<Lotto> lottos) {
+        this.count = lottos.size();
         lottos.stream()
                 .forEach(lotto -> saveOneLotto(lotto));
     }
