@@ -14,10 +14,10 @@ public class User {
         int inputMoney = UserInterface.inputMoney();
         List<Lotto> lottos = LottoMachine.publish(inputMoney);
         WinningCalculator.setNumbers();
-        saveLottosInAccount(lottos);
+        saveResult(lottos);
     }
 
-    public void saveLottosInAccount(List<Lotto> lottos) {
+    public void saveResult(List<Lotto> lottos) {
         this.lottoAccount.saveLottos(lottos);
     }
 }
