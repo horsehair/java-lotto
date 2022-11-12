@@ -37,11 +37,17 @@ public class LottoAccount {
 
     public void returnResult() {
         UserInterface.printResult(results);
+        UserInterface.printYield(calculateYield());
     }
 
     private void calculateWinningAmount() {
         for (WinningResult result: results.keySet()) {
             this.winningAmount += results.get(result) * result.getMoney();
         }
+    }
+
+    private String calculateYield() {
+        String yield = String.format("%.2f", winningAmount * 100 / (count * 1000));
+        return yield;
     }
 }
