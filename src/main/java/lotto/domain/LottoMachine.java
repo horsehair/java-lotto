@@ -3,6 +3,7 @@ package lotto.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import lotto.utility.Utility;
 
 public class LottoMachine {
     private static final int AMOUNT_OF_LOTTO = 1_000;
@@ -36,7 +37,8 @@ public class LottoMachine {
                 numbers.add(randomNumber);
             }
         } while (numbers.size() < 6);
-        Lotto lotto = new Lotto(numbers);
+        List<Integer> numbersSorted = Utility.sortNumbers(numbers);
+        Lotto lotto = new Lotto(numbersSorted);
         return lotto;
     }
 }
