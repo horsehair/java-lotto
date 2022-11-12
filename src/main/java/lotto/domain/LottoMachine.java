@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LottoMachine {
@@ -7,12 +9,34 @@ public class LottoMachine {
 
     public static List<Lotto> publish(int inputMoney) {
         int countOfLottos = calculateCount(inputMoney);
-        List<Lotto> lottos = create(countOfLottos);
+        List<Lotto> lottos = createLottos(countOfLottos);
         return lottos;
     }
 
     private static int calculateCount(int inputMoney) {
         int count = inputMoney / AMOUNT_OF_LOTTO;
         return count;
+    }
+
+    private static List<Lotto> createLottos(int countOfLottos) {
+        List<Lotto> lottos = new ArrayList<>();
+        for (int count = 0; count < countOfLottos; count++) {
+            Lotto lotto = createLotto();
+            lottos.add(lotto);
+        }
+        return lottos;
+    }
+
+    private static Lotto createLotto() {
+        List<Integer> numbers = new ArrayList<>();
+        int randomNumber;
+        do {
+            randomNumber = Randoms.pickNumberInRange(1, 45);
+            if (!numbers.contains(randomNumber)) {
+                numbers.add(randomNumber);
+            }
+        } while (numbers.size() < 6);
+        Lotto lotto = new Lotto(numbers);
+        return lotto;
     }
 }
