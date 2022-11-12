@@ -13,6 +13,7 @@ public class UserInterface {
     private static final String ANNOUNCEMENT_INPUT_LOTTO_COUNT = "개를 구매했습니다.";
     private static final String ANNOUNCEMENT_INPUT_WINNING_NUMBERS = "당첨 번호를 입력해 주세요.";
     private static final String ANNOUNCEMENT_INPUT_BONUS_NUMBER = "보너스 번호를 입력해 주세요.";
+    private static final String ANNOUNCEMENT_WINNING_STATISTICS = "당첨 통계\n---";
 
 
     public static int inputMoney() {
@@ -49,6 +50,8 @@ public class UserInterface {
     }
 
     public static void printResult(Map<WinningResult, Integer> results) {
+        System.out.println();
+        System.out.println(ANNOUNCEMENT_WINNING_STATISTICS);
         for(WinningResult result: results.keySet()) {
             System.out.println(result.getRule() + " - " + results.get(result) + "개");
         }
