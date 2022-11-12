@@ -3,16 +3,18 @@ package lotto.domain;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import lotto.constant.WinningResult;
 
 public class LottoAccount {
-    private Map results = new LinkedHashMap();
+    private Map<WinningResult, Integer> results = new LinkedHashMap();
 
     public LottoAccount() {
-        results.put("5등", 0);
-        results.put("4등", 0);
-        results.put("3등", 0);
-        results.put("2등", 0);
-        results.put("1등", 0);
+        results.put(WinningResult.RANK_NONE, 0);
+        results.put(WinningResult.RANK_5, 0);
+        results.put(WinningResult.RANK_4, 0);
+        results.put(WinningResult.RANK_3, 0);
+        results.put(WinningResult.RANK_2, 0);
+        results.put(WinningResult.RANK_1, 0);
     }
 
     public void saveLottos(List<Lotto> lottos) {
