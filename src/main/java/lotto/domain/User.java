@@ -1,6 +1,7 @@
 package lotto.domain;
 
 import java.util.List;
+import lotto.ui.UserInterface;
 
 public class User {
     LottoAccount lottoAccount;
