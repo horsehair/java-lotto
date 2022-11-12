@@ -9,14 +9,16 @@ import lotto.ui.UserInterface;
 public class LottoAccount {
     private Map<WinningResult, Integer> results = new LinkedHashMap();
     private int count;
+    private int winningAmount;
 
     public LottoAccount() {
-        results.put(WinningResult.RANK_NONE, 0);
-        results.put(WinningResult.RANK_5, 0);
-        results.put(WinningResult.RANK_4, 0);
-        results.put(WinningResult.RANK_3, 0);
-        results.put(WinningResult.RANK_2, 0);
-        results.put(WinningResult.RANK_1, 0);
+        this.results.put(WinningResult.RANK_NONE, 0);
+        this.results.put(WinningResult.RANK_5, 0);
+        this.results.put(WinningResult.RANK_4, 0);
+        this.results.put(WinningResult.RANK_3, 0);
+        this.results.put(WinningResult.RANK_2, 0);
+        this.results.put(WinningResult.RANK_1, 0);
+        this.winningAmount = 0;
     }
 
     public void saveLottos(List<Lotto> lottos) {
