@@ -10,6 +10,8 @@ public class UserInterface {
     private static final String ANNOUNCEMENT_INPUT_MONEY = "구입금액을 입력해 주세요.";
     private static final String ANNOUNCEMENT_INPUT_LOTTO_COUNT = "개를 구매했습니다.";
     private static final String ANNOUNCEMENT_INPUT_WINNING_NUMBERS = "당첨 번호를 입력해 주세요.";
+    private static final String ANNOUNCEMENT_INPUT_BONUS_NUMBER = "보너스 번호를 입력해 주세요.";
+
 
     public static int inputMoney() {
         System.out.println(ANNOUNCEMENT_INPUT_MONEY);
@@ -35,5 +37,12 @@ public class UserInterface {
                 .map(Integer::parseInt)
                 .collect(Collectors.toList()));
         return inputWinningNumbers;
+    }
+
+    public static int inputBonusNumer() {
+        System.out.println();
+        System.out.println(ANNOUNCEMENT_INPUT_BONUS_NUMBER);
+        int inputNumber = Integer.parseInt(Console.readLine());
+        return inputNumber;
     }
 }

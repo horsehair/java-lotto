@@ -4,10 +4,13 @@ import java.util.List;
 import lotto.ui.UserInterface;
 
 public class WinningCalculator {
-    private static List<Integer> numbers;
+    private static List<Integer> winningNumbers;
+    private static int bonusNumber;
 
     public static void setNumbers() {
         List<Integer> inputWinningNumbers = UserInterface.inputWinningNumbers();
-        numbers = inputWinningNumbers;
+        winningNumbers = inputWinningNumbers;
+        int inputBonusNumber = UserInterface.inputBonusNumer();
+        bonusNumber = inputBonusNumber;
     }
 }
