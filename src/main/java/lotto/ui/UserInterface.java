@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import lotto.constant.WinningResult;
 
 public class UserInterface {
     private static final String ANNOUNCEMENT_INPUT_MONEY = "구입금액을 입력해 주세요.";
@@ -39,10 +41,16 @@ public class UserInterface {
         return inputWinningNumbers;
     }
 
-    public static int inputBonusNumer() {
+    public static int inputBonusNumber() {
         System.out.println();
         System.out.println(ANNOUNCEMENT_INPUT_BONUS_NUMBER);
         int inputNumber = Integer.parseInt(Console.readLine());
         return inputNumber;
+    }
+
+    public static void printResult(Map<WinningResult, Integer> results) {
+        for(WinningResult result: results.keySet()) {
+            System.out.println(result.getRule() + " - " + results.get(result) + "개");
+        }
     }
 }

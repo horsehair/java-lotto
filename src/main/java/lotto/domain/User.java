@@ -15,9 +15,14 @@ public class User {
         List<Lotto> lottos = LottoMachine.publish(inputMoney);
         WinningCalculator.setNumbers();
         saveResult(lottos);
+        returnResult();
     }
 
     public void saveResult(List<Lotto> lottos) {
         this.lottoAccount.saveLottos(lottos);
+    }
+
+    public void returnResult() {
+        this.lottoAccount.returnResult();
     }
 }

@@ -11,7 +11,7 @@ public class WinningCalculator {
     public static void setNumbers() {
         List<Integer> inputWinningNumbers = UserInterface.inputWinningNumbers();
         winningNumbers = inputWinningNumbers;
-        int inputBonusNumber = UserInterface.inputBonusNumer();
+        int inputBonusNumber = UserInterface.inputBonusNumber();
         bonusNumber = inputBonusNumber;
     }
 
@@ -38,9 +38,6 @@ public class WinningCalculator {
     }
 
     private static WinningResult getResultByCountAndBonus(int countHit, boolean isContainBonus) {
-        if (countHit < 3) {
-            return WinningResult.RANK_NONE;
-        }
         if (countHit == 3) {
             return WinningResult.RANK_5;
         }
