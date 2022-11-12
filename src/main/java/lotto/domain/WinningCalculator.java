@@ -1,6 +1,7 @@
 package lotto.domain;
 
 import java.util.List;
+import lotto.constant.WinningResult;
 import lotto.ui.UserInterface;
 
 public class WinningCalculator {
@@ -12,5 +13,13 @@ public class WinningCalculator {
         winningNumbers = inputWinningNumbers;
         int inputBonusNumber = UserInterface.inputBonusNumer();
         bonusNumber = inputBonusNumber;
+    }
+
+    public static WinningResult getResult(Lotto lotto) {
+        List<Integer> numbers = lotto.getNumbers();
+        int countHit = countHit(numbers);
+        boolean isContainBonus = isContainBonus(numbers);
+        WinningResult result = getResultByCountAndBonus(countHit, isContainBonus);
+        return result;
     }
 }
