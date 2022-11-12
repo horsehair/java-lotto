@@ -12,7 +12,7 @@ public class User {
 
     public void buyLottos() {
         int inputMoney = UserInterface.inputMoney();
-        List<Lotto> lottos = LottoMachine(inputMoney);
+        List<Lotto> lottos = LottoMachine.publish(inputMoney);
         saveLottosInAccount(lottos);
     }
 
