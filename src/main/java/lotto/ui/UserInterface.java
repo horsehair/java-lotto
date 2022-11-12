@@ -56,4 +56,8 @@ public class UserInterface {
             System.out.println(result.getRule() + " - " + results.get(result) + "개");
         }
     }
+
+    public static void printYield(String yield) {
+        System.out.println("총 수익률은 " + yield + "%입니다.");
+    }
 }

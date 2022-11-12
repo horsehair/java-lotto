@@ -47,7 +47,8 @@ public class LottoAccount {
     }
 
     private String calculateYield() {
-        String yield = String.format("%.2f", winningAmount * 100 / (count * 1000));
+        double yieldRaw = winningAmount * 100 / (count * 1000);
+        String yield = String.format("%.2f", yieldRaw);
         return yield;
     }
 }
