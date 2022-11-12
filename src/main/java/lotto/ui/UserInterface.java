@@ -53,6 +53,9 @@ public class UserInterface {
         System.out.println();
         System.out.println(ANNOUNCEMENT_WINNING_STATISTICS);
         for(WinningResult result: results.keySet()) {
+            if(result == WinningResult.RANK_NONE) {
+                continue;
+            }
             System.out.println(result.getRule() + " - " + results.get(result) + "개");
         }
     }
