@@ -14,6 +14,7 @@ public class LottoMachine {
 
     public static List<Lotto> publish(int inputMoney) {
         int countOfLottos = calculateCount(inputMoney);
+        UserInterface.printCountOfLottos(countOfLottos);
         List<Lotto> lottos = createLottos(countOfLottos);
         return lottos;
     }
