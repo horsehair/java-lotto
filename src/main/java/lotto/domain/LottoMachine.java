@@ -3,10 +3,14 @@ package lotto.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import lotto.ui.UserInterface;
 import lotto.utility.Utility;
 
 public class LottoMachine {
     private static final int AMOUNT_OF_LOTTO = 1_000;
+    private static final int LOTTO_START_NUMBER = 1;
+    private static final int LOTTO_END_NUMBER = 45;
+    private static final int LOTTO_COUNT_OF_NUMBERS = 6;
 
     public static List<Lotto> publish(int inputMoney) {
         int countOfLottos = calculateCount(inputMoney);
@@ -29,16 +33,21 @@ public class LottoMachine {
     }
 
     private static Lotto createLotto() {
-        List<Integer> numbers = new ArrayList<>();
-        int randomNumber;
-        do {
-            randomNumber = Randoms.pickNumberInRange(1, 45);
-            if (!numbers.contains(randomNumber)) {
-                numbers.add(randomNumber);
-            }
-        } while (numbers.size() < 6);
+        List<Integer> numbers = getRandomNumbers();
         List<Integer> numbersSorted = Utility.sortNumbers(numbers);
         Lotto lotto = new Lotto(numbersSorted);
         return lotto;
+    }
+
+    private static List<Integer> getRandomNumbers() {
+        List<Integer> numbers = new ArrayList<>();
+        int randomNumber;
+        do {
+            randomNumber = Randoms.pickNumberInRange(LOTTO_START_NUMBER, LOTTO_END_NUMBER);
+            if (!numbers.contains(randomNumber)) {
+                numbers.add(randomNumber);
+            }
+        } while (numbers.size() < LOTTO_COUNT_OF_NUMBERS);
+        return numbers;
     }
 }
