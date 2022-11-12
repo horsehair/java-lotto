@@ -32,4 +32,8 @@ public class WinningCalculator {
         }
         return count;
     }
+
+    private static boolean isContainBonus(List<Integer> numbers) {
+        return numbers.contains(bonusNumber);
+    }
 }
