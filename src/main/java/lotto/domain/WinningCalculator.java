@@ -36,4 +36,23 @@ public class WinningCalculator {
     private static boolean isContainBonus(List<Integer> numbers) {
         return numbers.contains(bonusNumber);
     }
+
+    private static WinningResult getResultByCountAndBonus(int countHit, boolean isContainBonus) {
+        if (countHit < 3) {
+            return WinningResult.RANK_NONE;
+        }
+        if (countHit == 3) {
+            return WinningResult.RANK_5;
+        }
+        if (countHit == 4) {
+            return WinningResult.RANK_4;
+        }
+        if (countHit == 5 && isContainBonus) {
+            return WinningResult.RANK_2;
+        }
+        if (countHit == 5) {
+            return WinningResult.RANK_3;
+        }
+        return WinningResult.RANK_1;
+    }
 }
