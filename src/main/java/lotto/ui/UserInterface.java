@@ -20,21 +20,16 @@ public class UserInterface {
 
     public static int inputMoney() {
         System.out.println(ANNOUNCEMENT_INPUT_MONEY);
-        String inputMoneyRaw = getInputMoneyRaw();
-        int inputMoney = Integer.parseInt(inputMoneyRaw);
+        String inputMoneyRaw = Console.readLine();
+        String inputMoneyValidated = getInputMoneyRaw(inputMoneyRaw);
+        int inputMoney = Integer.parseInt(inputMoneyValidated);
         System.out.println();
         return inputMoney;
     }
 
-    private static String getInputMoneyRaw() throws NoSuchElementException {
-        try {
-            String inputMoneyRaw = Console.readLine();
-            Validator.inputMoney(inputMoneyRaw);
-            return inputMoneyRaw;
-        } catch (IllegalArgumentException e) {
-            System.out.println(e);
-            throw new NoSuchElementException();
-        }
+    private static String getInputMoneyRaw(String inputMoneyRaw) throws IllegalArgumentException {
+        Validator.inputMoney(inputMoneyRaw);
+        return inputMoneyRaw;
     }
 
     public static void printCountOfLottos(int countOfLottos) {
@@ -45,19 +40,19 @@ public class UserInterface {
         System.out.println(numbers);
     }
 
-    public static List<Integer> inputWinningNumbers() g{
-        try {
-            System.out.println();
-            System.out.println(ANNOUNCEMENT_INPUT_WINNING_NUMBERS);
-            String inputNumbersRaw = Console.readLine();
-            List<Integer> inputWinningNumbers = new ArrayList<>(Arrays.asList(inputNumbersRaw.split(","))
-                    .stream()
-                    .map(Integer::parseInt)
-                    .collect(Collectors.toList()));
-            return inputWinningNumbers;
-        } catch (Exception e) {
-            throw new IllegalArgumentException("[ERROR] 1과 45 사이의 숫자 6개를 \",\"으로 이어서 입력해주세요 (ex: 1,2,3,4,5,6)");
-        }
+    public static List<Integer> inputWinningNumbers() {
+//        try {
+        System.out.println();
+        System.out.println(ANNOUNCEMENT_INPUT_WINNING_NUMBERS);
+        String inputNumbersRaw = Console.readLine();
+        List<Integer> inputWinningNumbers = new ArrayList<>(Arrays.asList(inputNumbersRaw.split(","))
+                .stream()
+                .map(Integer::parseInt)
+                .collect(Collectors.toList()));
+        return inputWinningNumbers;
+//        } catch (Exception e) {
+//            throw new IllegalArgumentException("[ERROR] 1과 45 사이의 숫자 6개를 \",\"으로 이어서 입력해주세요 (ex: 1,2,3,4,5,6)");
+//        }
     }
 
     public static int inputBonusNumber() {

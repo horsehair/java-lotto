@@ -11,11 +11,15 @@ public class User {
     }
 
     public void buyLottos() {
-        int inputMoney = UserInterface.inputMoney();
-        List<Lotto> lottos = LottoMachine.publish(inputMoney);
-        WinningCalculator.setNumbers();
-        saveResult(lottos);
-        returnResult();
+        try {
+            int inputMoney = UserInterface.inputMoney();
+            List<Lotto> lottos = LottoMachine.publish(inputMoney);
+            WinningCalculator.setNumbers();
+            saveResult(lottos);
+            returnResult();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void saveResult(List<Lotto> lottos) {
